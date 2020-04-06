@@ -1,8 +1,72 @@
-<div class="container">
-  <div class="box">
-    <label>Payee Name</label>
-    <input (input)="onNameInputChange($event.target.value)">  
+<div class="container mt-4">
+  <div class="col-12">
+    <h3 class="text-center mb-4">Payment Simulation</h3>
+  </div>
+  <div class="row">
+    <div class="col">
+      <div class="form-group">
+        <label>Payee Name</label>
+        <input (input)="onNameInputChange($event.target.value)" class="form-control">  
+      </div>
+    </div>
+    <div class="col">
+      <label><b>Name</b></label>
+      <p>{{ name | titlecase }}</p>
+    </div>  
+  </div>
+  <div class="row">
+    <div class="col">
+      <div class="form-group">
+        <label>Payment Date</label>
+        <input type="date" (input)="onDateChange($event.target.value)" class="form-control">  
+      </div>
+    </div>
+    <div class="col">
+      <label><b>Date</b></label>
+      <p>{{ date | date:"d MMMM y" }}</p>
+    </div>  
+  </div>
+  <div class="row">
+    <div class="col">
+      <div class="form-group">
+        <label>Payment Amount</label>
+        <input (input)="onAmountChange($event.target.value)" class="form-control">  
+      </div>
+    </div>
+    <div class="col">
+      <label><b>Amount</b></label>
+      <p>{{ amount | currency:'TRY ' }}</p>
+    </div>  
+  </div>
+  <div class="row">
+    <div class="col">
+      <div class="form-group">
+        <label>Package Height</label>
+        <input (input)="onHeightChange($event.target.value)" class="form-control">  
+      </div>
+    </div>
+    <div class="col">
+      <label><b>Height</b></label>
+      <p>{{ height | number:'1.1-3' }} <span *ngIf="height">gr</span></p>
+    </div> 
+  </div>
+  <div class="row">
+    <div class="col">
+      <div class="form-group">
+        <label>Distance KM</label>
+        <input (input)="onDistanceChange($event.target.value)" class="form-control">  
+      </div>
+    </div>
+    <div class="col">
+      <label><b>Meters</b></label>
+      <p>{{ distance | convertMeters:'m' }} <span *ngIf="distance">m</span></p>
+      <!-- if want to use precondition -->
+      <p *ngIf="(distance | convertMeters:'m') > 100">{{ distance | convertMeters:'m' }} <span *ngIf="distance">m > 100m</span></p>
+      <!-- another case math function like .001 -->
+      <p>{{ distance | convertMeters:'m' | number:'1.0-2'}} <span *ngIf="distance">m math correction</span></p>
+    </div> 
+    <div class="col-12">
+      <p>{{ paymentData | json }}</p>
+    </div> 
   </div>
 </div>
-
-{{ name | titlecase}}
