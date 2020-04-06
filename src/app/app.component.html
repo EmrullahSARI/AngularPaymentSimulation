@@ -62,7 +62,7 @@
       <p>{{ distance | convertMeters:'m' }} <span *ngIf="distance">m</span></p>
       <!-- if want to use precondition -->
       <p *ngIf="(distance | convertMeters:'m') > 100">{{ distance | convertMeters:'m' }} <span *ngIf="distance">m > 100m</span></p>
-      <!-- another case math function like .001 -->
+      <!-- another case math function like x.001 -->
       <p>{{ distance | convertMeters:'m' | number:'1.0-2'}} <span *ngIf="distance">m math correction</span></p>
     </div> 
     <div class="col-12">
