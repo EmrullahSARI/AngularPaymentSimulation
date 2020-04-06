@@ -6,5 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'simulatePaymentBasics';
+  name: string;
+
+  onNameInputChange( value: string ) {
+    this.name = value;
+  }
 }

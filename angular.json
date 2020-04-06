@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "simulatePaymentBasics"
+    }
+  },
+  "defaultProject": "simulatePaymentBasics",
+  "cli": {
+    "analytics": "1c7702f2-d04e-4d1b-b265-7504faa03018"
+  }
 }
